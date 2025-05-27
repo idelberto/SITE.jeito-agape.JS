@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeito Ágape | Ministério de Música Católica</title>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -109,7 +111,7 @@
       </button>
       <nav class="hidden md:flex items-center space-x-6 text-white font-light">
         <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
-        <a href="#servicos" class="hover:text-red-300 transition">Serviços</a>
+        <a href="#O Que Fazemos" class="hover:text-red-300 transition">O Que Fazemos</a>
         <a href="#galeria" class="hover:text-red-300 transition">Galeria</a>
         <a href="#videos" class="hover:text-red-300 transition">Vídeos</a>
         <a href="#contato" class="hover:text-red-300 transition">Contato</a>
@@ -117,7 +119,7 @@
     </div>
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex flex-col space-y-2 bg-black/80 text-white text-sm">
       <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
-      <a href="#servicos" class="hover:text-red-300 transition">Serviços</a>
+      <a href="#O Que Fazemos" class="hover:text-red-300 transition">Serviços</a>
       <a href="#galeria" class="hover:text-red-300 transition">Galeria</a>
       <a href="#videos" class="hover:text-red-300 transition">Vídeos</a>
       <a href="#contato" class="hover:text-red-300 transition">Contato</a>
@@ -148,24 +150,86 @@
     </div>
   </section>
 
-  <!-- Serviços -->
-  <section class="py-20" id="servicos">
-    <div class="max-w-6xl mx-auto px-6" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-center mb-12">O que fazemos</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-2 text-red-700">Missas</h3>
-          <p>Levamos música litúrgica com reverência e espiritualidade para diversas paróquias.</p>
+  <!-- Seção: O Que Fazemos -->
+  <section class="py-24 bg-gradient-to-b from-white via-gray-50 to-white" id="o-que-fazemos">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+      <!-- Título -->
+      <h2 class="text-4xl font-extrabold mb-20 tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
+        <span class="pb-2 border-b-4 border-[#C53050]">O QUE FAZEMOS</span>
+      </h2>
+
+      <!-- Grid de Flashcards -->
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+        <!-- Missas -->
+        <div class="group p-8 bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:border-[#C53050] transition-all text-left">
+          <div class="flex items-center gap-4">
+            <i data-lucide="music" class="w-8 h-8 text-[#374151] group-hover:text-[#C53050] transition-colors"></i>
+            <h3 class="text-lg font-semibold text-gray-900">Missas</h3>
+          </div>
+          <p class="mt-4 text-gray-600">
+            Canções que acompanham a liturgia com reverência e beleza, elevando a espiritualidade de cada celebração.
+          </p>
         </div>
-        <div class="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-2 text-red-700">Retiros e Encontros</h3>
-          <p>Conduzimos momentos profundos de oração com canções que tocam o coração.</p>
+
+        <!-- Retiros -->
+        <div class="group p-8 bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:border-[#C53050] transition-all text-left">
+          <div class="flex items-center gap-4">
+            <i data-lucide="mountain" class="w-8 h-8 text-[#374151] group-hover:text-[#C53050] transition-colors"></i>
+            <h3 class="text-lg font-semibold text-gray-900">Retiros</h3>
+          </div>
+          <p class="mt-4 text-gray-600">
+            Música para aprofundar a oração, o silêncio e a escuta de Deus em momentos de espiritualidade.
+          </p>
         </div>
-        <div class="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-2 text-red-700">Shows e Eventos</h3>
-          <p>Apresentações musicais com repertório católico jovem em eventos públicos e privados.</p>
+
+        <!-- EJC -->
+        <div class="group p-8 bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:border-[#C53050] transition-all text-left">
+          <div class="flex items-center gap-4">
+            <i data-lucide="users" class="w-8 h-8 text-[#374151] group-hover:text-[#C53050] transition-colors"></i>
+            <h3 class="text-lg font-semibold text-gray-900">EJC</h3>
+          </div>
+          <p class="mt-4 text-gray-600">
+            Animação e alegria com linguagem jovem e fé viva nos encontros de juventude.
+          </p>
         </div>
+
+        <!-- Shows -->
+        <div class="group p-8 bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:border-[#C53050] transition-all text-left">
+          <div class="flex items-center gap-4">
+            <i data-lucide="mic" class="w-8 h-8 text-[#374151] group-hover:text-[#C53050] transition-colors"></i>
+            <h3 class="text-lg font-semibold text-gray-900">Shows</h3>
+          </div>
+          <p class="mt-4 text-gray-600">
+            Apresentações com arte, mensagem e música que tocam o público com luz, som e espiritualidade.
+          </p>
+        </div>
+
+        <!-- Ministrações -->
+        <div class="group p-8 bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:border-[#C53050] transition-all text-left">
+          <div class="flex items-center gap-4">
+            <i data-lucide="cross" class="w-8 h-8 text-[#374151] group-hover:text-[#C53050] transition-colors"></i>
+            <h3 class="text-lg font-semibold text-gray-900">Ministrações</h3>
+          </div>
+          <p class="mt-4 text-gray-600">
+            Conduzimos louvor, intercessão e cura com música e oração, de forma profunda e acolhedora.
+          </p>
+        </div>
+
+        <!-- Pregações -->
+        <div class="group p-8 bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:border-[#C53050] transition-all text-left">
+          <div class="flex items-center gap-4">
+            <i data-lucide="book-open-text" class="w-8 h-8 text-[#374151] group-hover:text-[#C53050] transition-colors"></i>
+            <h3 class="text-lg font-semibold text-gray-900">Pregações</h3>
+          </div>
+          <p class="mt-4 text-gray-600">
+            Uma experiência única que une a força da Palavra com a sensibilidade da música para tocar corações.
+          </p>
+        </div>
+
       </div>
+
     </div>
   </section>
 
@@ -235,6 +299,17 @@
     </div>
   </section>
 
+  <!-- Contato -->
+  <section class="py-16 bg-gray-100" id="contato">
+    <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
+      <h2 class="text-2xl font-bold mb-4" style="font-family: 'Nunito', sans-serif;">Precisa de ajuda?</h2>
+      <p class="text-lg text-gray-700">
+        <a href="mailto:jeitoagape@gmail.com" class="text-red-700 hover:underline">jeitoagape@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+
   <!-- Footer -->
   <footer class="text-center py-6 bg-black text-white text-sm">
     © 2025 Jeito Ágape. Todos os direitos reservados.
@@ -249,6 +324,7 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+    lucide.createIcons();
   </script>
 
   <script>
