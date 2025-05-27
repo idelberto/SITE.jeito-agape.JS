@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeito Ágape | Ministério de Música Católica</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" /> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Sora:wght@500;600&display=swap" rel="stylesheet"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    @keyframes shine {
+      0% {
+        background-position: -200%;
+      }
+      100% {
+        background-position: 200%;
+      }
+    }
+
+    .text-shine {
+      background: linear-gradient(90deg, #ffffff 0%, #ff5c8d 50%, #ffffff 100%);
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: shine 3s linear infinite;
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 0, 100, 0.2);
+    }
+  </style>
+
+  <!-- Fonte Urbanist -->
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap" rel="stylesheet">
+  <style>
+    .brand-stamp {
+      font-family: 'Urbanist', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.4rem 0.8rem;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      display: inline-block;
+      box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      border-radius: 0.5rem; /* arredondamento leve */
+    }
+
+    .brand-stamp:hover {
+      border-color: #b91c1c; /* vermelho vinho escuro */
+      box-shadow: 0 0 0 2px #b91c1c inset;
+      color: #b91c1c;
+    }
+  </style>
+
+  <!-- Fonte Lexend -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap" rel="stylesheet">
+  <style>
+    .brand-stamp {
+      font-family: 'Lexend', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.4rem 0.8rem;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      display: inline-block;
+      box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .brand-stamp:hover {
+      border-color: #f87171; /* hover suave vinho claro */
+      box-shadow: 0 0 0 2px #f87171 inset;
+      color: #f87171;
+    }
+  </style>
+
+
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body class="bg-white text-gray-800">
+
+  <!-- Header Fixo -->
+  <header class="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#hero" class="brand-stamp text-white text-base md:text-xl">
+        Jeito Ágape
+      </a>
+
+
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <nav class="hidden md:flex items-center space-x-6 text-white font-light">
+        <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
+        <a href="#servicos" class="hover:text-red-300 transition">Serviços</a>
+        <a href="#galeria" class="hover:text-red-300 transition">Galeria</a>
+        <a href="#videos" class="hover:text-red-300 transition">Vídeos</a>
+        <a href="#contato" class="hover:text-red-300 transition">Contato</a>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex flex-col space-y-2 bg-black/80 text-white text-sm">
+      <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
+      <a href="#servicos" class="hover:text-red-300 transition">Serviços</a>
+      <a href="#galeria" class="hover:text-red-300 transition">Galeria</a>
+      <a href="#videos" class="hover:text-red-300 transition">Vídeos</a>
+      <a href="#contato" class="hover:text-red-300 transition">Contato</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="relative bg-[url('assets/background.jpg')] bg-cover bg-center h-screen flex items-center justify-center text-white pt-32">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-center px-6 flex flex-col items-center">
+      <img src="assets/logo.png" alt="Logo Jeito Ágape" class="w-64 md:w-80 -mb-12 drop-shadow-xl opacity-80" />
+      <h1 class="text-4xl md:text-6xl font-light -mt-10 mb-1 bg-gradient-to-br from-white/90 to-white/60 bg-clip-text text-transparent drop-shadow-sm leading-tight md:leading-snug z-20 relative" style="font-family: 'Montserrat', sans-serif;">
+        Ministério Jeito Ágape
+      </h1>
+      <p class="text-xl md:text-2xl mb-2 text-white/80 font-light">
+        "Nada pode nos separar do amor de Deus." - Romanos 8,39
+      </p>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section class="py-20 bg-gray-50" id="sobre">
+    <div class="max-w-5xl mx-auto text-center px-6" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4">Quem Somos</h2>
+      <p class="text-gray-600 text-lg">Somos um ministério católico jovem que leva música, espiritualidade e comunhão para missas, shows e encontros. Nosso propósito é evangelizar com arte e amor ao próximo.</p>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section class="py-20" id="servicos">
+    <div class="max-w-6xl mx-auto px-6" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-center mb-12">O que fazemos</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold mb-2 text-red-700">Missas</h3>
+          <p>Levamos música litúrgica com reverência e espiritualidade para diversas paróquias.</p>
+        </div>
+        <div class="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold mb-2 text-red-700">Retiros e Encontros</h3>
+          <p>Conduzimos momentos profundos de oração com canções que tocam o coração.</p>
+        </div>
+        <div class="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold mb-2 text-red-700">Shows e Eventos</h3>
+          <p>Apresentações musicais com repertório católico jovem em eventos públicos e privados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section class="py-20 bg-gray-50" id="galeria">
+    <div class="max-w-6xl mx-auto px-6" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-center mb-12">Galeria de Fotos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <img src="assets/galeria/foto1.jpg" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300" data-aos="fade-up" />
+        <img src="assets/galeria/foto2.jpg" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100" />
+        <img src="assets/galeria/foto3.jpg" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200" />
+        <img src="assets/galeria/foto4.jpg" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300" />
+        <img src="assets/galeria/foto5.jpg" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400" />
+        <img src="assets/galeria/foto6.jpg" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Vídeos -->
+  <section class="py-20" id="videos">
+    <div class="max-w-5xl mx-auto px-6" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-center mb-12">Nossos Vídeos</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe class="w-full h-full rounded-xl shadow" src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        </div>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe class="w-full h-full rounded-xl shadow" src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="py-20 bg-red-700 text-white" id="contato">
+    <div class="max-w-2xl mx-auto px-6" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-center mb-6">Entre em contato</h2>
+      <form action="mailto:seuemail@dominio.com" method="POST" enctype="text/plain" class="bg-white text-gray-800 p-6 rounded-xl shadow-md space-y-4">
+        <input type="text" name="nome" placeholder="Seu nome" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-700" />
+        <input type="email" name="email" placeholder="Seu e-mail" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-700" />
+        <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-700"></textarea>
+        <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded-md shadow-md transition">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-black text-white text-sm">
+    © 2025 Jeito Ágape. Todos os direitos reservados.
+  </footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://api.whatsapp.com/send?phone=5531993605574" target="_blank" class="fixed bottom-6 left-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.373 0 12a11.938 11.938 0 001.664 6.03L0 24l6.287-1.65A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.19-1.242-6.207-3.48-8.52zM12 22c-1.695 0-3.325-.43-4.78-1.254l-.34-.19-3.733.978.998-3.617-.214-.37A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.472-.148-.672.148-.198.297-.77.966-.945 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.019-.458.13-.605.134-.133.297-.347.446-.52.149-.173.198-.298.297-.495.099-.198.05-.371-.025-.52-.074-.149-.673-1.617-.922-2.214-.243-.58-.49-.501-.672-.51l-.567-.01c-.198 0-.52.074-.791.371-.272.297-1.038 1.011-1.038 2.467s1.063 2.863 1.212 3.063c.148.198 2.1 3.34 5.08 4.678.708.305 1.261.487 1.69.622.712.227 1.364.196 1.875.119.571-.085 1.759-.717 2.009-1.41.248-.694.248-1.286.174-1.415-.074-.13-.273-.198-.567-.347z"/>
+    </svg>
+  </a>
+
+  <!-- Botão Voltar ao Topo -->
+  <button id="backToTop" class="fixed bottom-6 right-6 z-40 bg-red-700 hover:bg-red-800 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible">
+    ^
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
