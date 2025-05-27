@@ -5,22 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeito Ágape | Ministério de Música Católica</title>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend:wght@600&family=Nunito:wght@400;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
-    @keyframes shine {
-      0% {
-        background-position: -200%;
-      }
-      100% {
-        background-position: 200%;
-      }
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
     .text-shine {
       background: linear-gradient(90deg, #ffffff 0%, #ff5c8d 50%, #ffffff 100%);
       background-size: 200% auto;
@@ -30,33 +29,10 @@
       animation: shine 3s linear infinite;
       text-shadow: 0 0 4px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 0, 100, 0.2);
     }
-  </style>
-
-  <!-- Fonte Urbanist -->
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap" rel="stylesheet">
-  <style>
-    .brand-stamp {
-      font-family: 'Urbanist', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 0.4rem 0.8rem;
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      display: inline-block;
-      box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-      border-radius: 0.5rem; /* arredondamento leve */
+    @keyframes shine {
+      0% { background-position: -200%; }
+      100% { background-position: 200%; }
     }
-
-    .brand-stamp:hover {
-      border-color: #b91c1c; /* vermelho vinho escuro */
-      box-shadow: 0 0 0 2px #b91c1c inset;
-      color: #b91c1c;
-    }
-  </style>
-
-  <!-- Fonte Lexend -->
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap" rel="stylesheet">
-  <style>
     .brand-stamp {
       font-family: 'Lexend', sans-serif;
       text-transform: uppercase;
@@ -66,32 +42,14 @@
       display: inline-block;
       box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
+      border-radius: 0.5rem;
     }
-
     .brand-stamp:hover {
-      border-color: #f87171; /* hover suave vinho claro */
+      border-color: #f87171;
       box-shadow: 0 0 0 2px #f87171 inset;
       color: #f87171;
     }
   </style>
-
-  <!-- Fonte refinada e moderna: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
-
 </head>
 
 <body class="bg-white text-gray-800">
@@ -145,7 +103,11 @@
     <div class="max-w-5xl mx-auto px-6" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6 text-center" style="font-family: 'Nunito', sans-serif;">Quem Somos</h2>
       <p class="text-gray-700 text-lg leading-relaxed text-justify" style="font-family: 'Nunito', sans-serif;">
-        O Ministério Jeito Ágape é formado por jovens católicos que encontraram na música uma forma de servir com amor. Atuamos em missas, retiros e eventos, com um som que une tradição e modernidade. Nossa missão é evangelizar com leveza, fé e alegria — criando momentos onde a música toca o coração e aproxima as pessoas de Deus.
+        O Ministério de Música Católica <strong>Jeito Ágape</strong> nasceu há <strong>13 anos</strong> com o propósito de evangelizar por meio da música. Desde então, temos vivido uma caminhada marcada por fé, amizade e serviço à Igreja. Participamos de celebrações, retiros, eventos paroquiais e shows, sempre levando uma mensagem de amor e esperança.
+        <br><br>
+        Com um repertório jovem e criativo, que une o tradicional ao moderno, buscamos tocar os corações e criar um ambiente propício para o encontro com Deus. Um dos grandes marcos da nossa história foi o lançamento do nosso <strong>primeiro disco CONFIAR</strong>, fruto de muita dedicação, oração e entrega. Cada canção expressa nossa missão de viver e anunciar o amor de Deus com alegria e amor.
+        <br><br>
+        Seguimos firmes, aprimorando nossas habilidades musicais e espirituais, e desejamos que a nossa música continue sendo instrumento de transformação, fé e comunhão. Queremos levar o Amor de Deus...
       </p>
     </div>
   </section>
@@ -156,7 +118,7 @@
 
       <!-- Título -->
       <h2 class="text-4xl font-extrabold mb-20 tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
-        <span class="pb-2 border-b-4 border-[#C53050]">O QUE FAZEMOS</span>
+        <span class="pb-2 border-b-4 border-[#C53050]">O Que Fazemos</span>
       </h2>
 
       <!-- Grid de Flashcards -->
