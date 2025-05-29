@@ -4,35 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeito Ágape | Ministério de Música Católica</title>
-
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend:wght@600&family=Nunito:wght@400;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
-
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
-    .text-shine {
-      background: linear-gradient(90deg, #ffffff 0%, #ff5c8d 50%, #ffffff 100%);
-      background-size: 200% auto;
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
-      animation: shine 3s linear infinite;
-      text-shadow: 0 0 4px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 0, 100, 0.2);
-    }
-    @keyframes shine {
-      0% { background-position: -200%; }
-      100% { background-position: 200%; }
-    }
     .brand-stamp {
       font-family: 'Lexend', sans-serif;
       text-transform: uppercase;
@@ -49,62 +27,65 @@
       box-shadow: 0 0 0 2px #f87171 inset;
       color: #f87171;
     }
+    /* Padronizar largura máxima dos textos centrais */
+    .max-text-section {
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 
 <body class="bg-white text-gray-800">
 
-  <!-- Header Fixo -->
+  <!-- Header -->
   <header class="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md shadow-sm transition-all">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-      <a href="#hero" class="brand-stamp text-white text-base md:text-xl">
-        Jeito Ágape
-      </a>
-
-
+      <a href="#hero" class="brand-stamp text-white text-base md:text-xl">Jeito Ágape</a>
       <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
+      <!-- Corrigir links para os IDs reais -->
       <nav class="hidden md:flex items-center space-x-6 text-white font-light">
         <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
-        <a href="#O Que Fazemos" class="hover:text-red-300 transition">O Que Fazemos</a>
+        <a href="#oque-fazemos" class="hover:text-red-300 transition">O Que Fazemos</a>
         <a href="#galeria" class="hover:text-red-300 transition">Galeria</a>
-        <a href="#videos" class="hover:text-red-300 transition">Vídeos</a>
+        <a href="#disco-confiar" class="hover:text-red-300 transition">Nosso Álbum</a>
         <a href="#contato" class="hover:text-red-300 transition">Contato</a>
       </nav>
     </div>
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex flex-col space-y-2 bg-black/80 text-white text-sm">
       <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
-      <a href="#O Que Fazemos" class="hover:text-red-300 transition">Serviços</a>
+      <a href="#oque-fazemos" class="hover:text-red-300 transition">O Que Fazemos</a>
       <a href="#galeria" class="hover:text-red-300 transition">Galeria</a>
-      <a href="#videos" class="hover:text-red-300 transition">Vídeos</a>
+      <a href="#disco-confiar" class="hover:text-red-300 transition">Nosso Álbum</a>
       <a href="#contato" class="hover:text-red-300 transition">Contato</a>
     </div>
   </header>
 
+
   <!-- Hero -->
   <section id="hero" class="relative bg-[url('assets/background.jpg')] bg-cover bg-center h-screen flex items-center justify-center text-white pt-32">
     <div class="absolute inset-0 bg-black/60"></div>
-    <div class="relative z-10 text-center px-6 flex flex-col items-center">
-      <img src="assets/logo.png" alt="Logo Jeito Ágape" class="w-64 md:w-80 -mb-12 drop-shadow-xl opacity-80" />
-      <h1 class="text-4xl md:text-6xl font-light -mt-10 mb-1 bg-gradient-to-br from-white/90 to-white/60 bg-clip-text text-transparent drop-shadow-sm leading-tight md:leading-snug z-20 relative" style="font-family: 'Montserrat', sans-serif;">
+    <div class="relative z-10 text-center px-4 flex flex-col items-center">
+      <img src="assets/logo.png" alt="Logo Jeito Ágape" class="w-48 md:w-80 -mb-10 drop-shadow-xl opacity-80" />
+      <h1 class="text-4xl md:text-6xl font-light -mt-8 mb-1 bg-gradient-to-br from-white/90 to-white/60 bg-clip-text text-transparent drop-shadow-sm leading-tight md:leading-snug z-20 relative" style="font-family: 'Montserrat', sans-serif;">
         Ministério Jeito Ágape
       </h1>
-      <p class="text-xl md:text-2xl mb-2 text-white/80 font-light">
-        "Nada pode nos separar do amor de Deus." - Romanos 8,39
-      </p>
+      <p class="text-lg md:text-2xl mb-2 text-white/80 font-light">"Nada pode nos separar do amor de Deus." - Romanos 8,39</p>
     </div>
   </section>
 
   <!-- Sobre -->
-  <section class="py-24 bg-gray-50" id="sobre">
-    <div class="max-w-5xl mx-auto px-6" data-aos="fade-up">
+  <section class="py-16 md:py-24 bg-gray-50" id="sobre">
+    <div class="max-w-4xl px-4 md:px-6 mx-auto" data-aos="fade-up">
       <h2 class="text-4xl font-extrabold mb-8 text-center tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
         <span class="pb-2 border-b-4 border-[#C53050]">Quem Somos</span>
       </h2>
-      <p class="text-gray-700 text-lg leading-relaxed text-justify" style="font-family: 'Nunito', sans-serif;">
+      <!-- Padronizar max-width, fonte e tamanho -->
+      <p class="max-text-section text-gray-700 text-lg md:text-xl leading-relaxed text-justify" style="font-family: 'Nunito', sans-serif;">
         O Ministério de Música Católica <strong>Jeito Ágape</strong> nasceu há <strong>13 anos</strong> com o propósito de evangelizar por meio da música. Desde então, temos vivido uma caminhada marcada por fé, amizade e serviço à Igreja. Participamos de celebrações, retiros, eventos paroquiais e shows, sempre levando uma mensagem de amor e esperança.
         <br><br>
         Com um repertório jovem e criativo, que une o tradicional ao moderno, buscamos tocar os corações e criar um ambiente propício para o encontro com Deus. Um dos grandes marcos da nossa história foi o lançamento do nosso <strong>primeiro disco CONFIAR</strong>, fruto de muita dedicação, oração e entrega. Cada canção expressa nossa missão de viver e anunciar o amor de Deus com alegria e amor.
@@ -114,17 +95,13 @@
     </div>
   </section>
 
-  <!-- Seção: O Que Fazemos -->
-  <section class="py-24 bg-gradient-to-b from-white via-gray-50 to-white" id="o-que-fazemos">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-
-      <!-- Título -->
-      <h2 class="text-4xl font-extrabold mb-20 tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
+  <!-- O Que Fazemos -->
+  <section class="py-16 md:py-24 bg-gradient-to-b from-white via-gray-50 to-white" id="oque-fazemos">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-4xl font-extrabold mb-16 md:mb-20 tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
         <span class="pb-2 border-b-4 border-[#C53050]">O Que Fazemos</span>
       </h2>
-
-      <!-- Grid de Flashcards -->
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
 
         <!-- Missas -->
         <div class="group p-8 bg-white border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:border-[#C53050] transition-all text-left">
@@ -191,29 +168,23 @@
             Uma experiência única que une a força da Palavra com a sensibilidade da música para tocar corações.
           </p>
         </div>
-
       </div>
-
     </div>
   </section>
 
-  <!-- Botão flutuante WhatsApp -->
+
+  <!-- WhatsApp Flutuante -->
   <a href="https://api.whatsapp.com/send?phone=5531993605574" target="_blank" class="fixed bottom-6 left-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition">
-    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.373 0 12a11.938 11.938 0 001.664 6.03L0 24l6.287-1.65A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.19-1.242-6.207-3.48-8.52zM12 22c-1.695 0-3.325-.43-4.78-1.254l-.34-.19-3.733.978.998-3.617-.214-.37A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/>
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.472-.148-.672.148-.198.297-.77.966-.945 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.019-.458.13-.605.134-.133.297-.347.446-.52.149-.173.198-.298.297-.495.099-.198.05-.371-.025-.52-.074-.149-.673-1.617-.922-2.214-.243-.58-.49-.501-.672-.51l-.567-.01c-.198 0-.52.074-.791.371-.272.297-1.038 1.011-1.038 2.467s1.063 2.863 1.212 3.063c.148.198 2.1 3.34 5.08 4.678.708.305 1.261.487 1.69.622.712.227 1.364.196 1.875.119.571-.085 1.759-.717 2.009-1.41.248-.694.248-1.286.174-1.415-.074-.13-.273-.198-.567-.347z"/>
-    </svg>
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.373 0 12a11.938 11.938 0 001.664 6.03L0 24l6.287-1.65A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.19-1.242-6.207-3.48-8.52zM12 22c-1.695 0-3.325-.43-4.78-1.254l-.34-.19-3.733.978.998-3.617-.214-.37A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.472-.148-.672.148-.198.297-.77.966-.945 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.019-.458.13-.605.134-.133.297-.347.446-.52.149-.173.198-.298.297-.495.099-.198.05-.371-.025-.52-.074-.149-.673-1.617-.922-2.214-.243-.58-.49-.501-.672-.51l-.567-.01c-.198 0-.52.074-.791.371-.272.297-1.038 1.011-1.038 2.467s1.063 2.863 1.212 3.063c.148.198 2.1 3.34 5.08 4.678.708.305 1.261.487 1.69.622.712.227 1.364.196 1.875.119.571-.085 1.759-.717 2.009-1.41.248-.694.248-1.286.174-1.415-.074-.13-.273-.198-.567-.347z"/></svg>
   </a>
 
-  <!-- Nosso Album - Confiar -->
-  <section class="py-24 bg-gray-50" id="disco-confiar">
-    <div class="max-w-5xl mx-auto px-6" data-aos="fade-up">
-      <h2 class="text-4xl font-extrabold tracking-wide text-center text-gray-900 mb-14" style="font-family: 'Sora', sans-serif;">
+  <!-- Nosso Álbum -->
+  <section class="py-16 md:py-24 bg-gray-50" id="disco-confiar">
+    <div class="max-w-4xl px-4 md:px-6 mx-auto" data-aos="fade-up">
+      <h2 class="text-4xl font-extrabold tracking-wide text-center text-gray-900 mb-10 md:mb-14" style="font-family: 'Sora', sans-serif;">
         <span class="pb-2 border-b-4 border-[#C53050]">Nosso Álbum — Confiar</span>
       </h2>
-
-      <!-- Descrição do Álbum -->
-      <div class="mb-12 max-w-3xl mx-auto text-lg text-gray-700 text-justify" style="font-family: 'Nunito', sans-serif;">
+      <div class="mb-10 md:mb-12 max-text-section text-gray-700 text-lg md:text-xl text-justify" style="font-family: 'Nunito', sans-serif;">
         <p class="mb-4">
           <strong>“Confiar”</strong> é o primeiro álbum autoral do Ministério Jeito Ágape, lançado em 2024 após meses de muito trabalho, oração e inspiração.
         </p>
@@ -458,30 +429,24 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 bg-black text-white text-sm">
+  <!-- Footer e scripts permanecem iguais... -->
+  <footer class="text-center py-6 bg-black text-white text-sm mt-4">
     © 2025 Jeito Ágape. Todos os direitos reservados.
   </footer>
-
-  <!-- Botão Voltar ao Topo -->
   <button id="backToTop" class="fixed bottom-6 right-6 z-40 bg-red-700 hover:bg-red-800 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible">
     ^
   </button>
-
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
     lucide.createIcons();
-  </script>
-
-  <script>
+    // Menu mobile
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('mobile-menu');
     toggle.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
-
+    // Voltar ao topo
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
