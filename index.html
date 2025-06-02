@@ -11,6 +11,7 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Sora:wght@600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
   
   <style>
     html { scroll-behavior: smooth; }
@@ -42,59 +43,37 @@
 
 <body class="bg-white text-gray-800">
 
-  <!-- Header -->
-  <header class="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md shadow-sm transition-all">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-      <a href="#hero" class="brand-stamp text-white text-base md:text-xl">Jeito Ágape</a>
-      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-      <!-- Corrigir links para os IDs reais -->
-      <nav class="hidden md:flex items-center space-x-6 text-white font-light">
-        <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
-        <a href="#oque-fazemos" class="hover:text-red-300 transition">O Que Fazemos</a>
-        <a href="#disco-confiar" class="hover:text-red-300 transition">Nosso Álbum</a>
-        <a href="#contato" class="hover:text-red-300 transition">Contato</a>
-      </nav>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 flex flex-col space-y-2 bg-black/80 text-white text-sm">
-      <a href="#sobre" class="hover:text-red-300 transition">Sobre</a>
-      <a href="#oque-fazemos" class="hover:text-red-300 transition">O Que Fazemos</a>
-      <a href="#disco-confiar" class="hover:text-red-300 transition">Nosso Álbum</a>
-      <a href="#contato" class="hover:text-red-300 transition">Contato</a>
-    </div>
-  </header>
-
   <!-- Hero -->
   <section id="hero" class="relative bg-[url('assets/background.jpg')] bg-cover bg-center h-screen flex items-center justify-center text-white pt-32">
     <div class="absolute inset-0 bg-black/60"></div>
     <div class="relative z-10 text-center px-4 flex flex-col items-center">
       <!-- Splash atrás da logo -->
       <span id="splash" class="absolute pointer-events-none" style="z-index:1;"></span>
-      <!-- Logo com efeito coração batendo -->
+      <!-- Logo -->
       <img
         src="assets/logo.png"
         alt="Logo Jeito Ágape"
         id="logo-agape"
-        class="w-48 md:w-80 -mb-10 drop-shadow-xl opacity-80 animate-heartbeat"
+        class="w-52 md:w-96 -mb-10 drop-shadow-xl opacity-90 animate-heartbeat"
         style="animation: heartbeat 1.2s cubic-bezier(.52,.01,.42,1.37) 1; z-index:2; position:relative;"
         onanimationend="this.style.animation = 'none'; document.getElementById('splash').style.display='none';"
         onanimationstart="document.getElementById('splash').style.display='block';"
       />
-      <!-- Título -->
-      <h1 class="text-5xl md:text-7xl font-light -mt-8 mb-1 bg-gradient-to-br from-white/90 to-white/60 bg-clip-text text-transparent drop-shadow-sm leading-tight md:leading-snug z-20 relative"
-          style="font-family: 'Montserrat', sans-serif;">
+      <!-- Nome do Ministério -->
+      <h1 class="text-5xl md:text-8xl font-semibold tracking-tight bg-gradient-to-br from-white/90 to-white/70 bg-clip-text text-transparent leading-tight md:leading-snug z-20 relative mt-1"
+          style="font-family: 'Lexend', 'Montserrat', sans-serif; text-shadow: 0 4px 18px #0003, 0 1px 1px #0004;">
         Ministério Jeito Ágape
       </h1>
-      <!-- Passagem bíblica -->
-      <p class="text-base md:text-xl mb-2 font-normal flex flex-col items-center">
-        <span class="inline-block px-4 py-1.5 bg-white/10 text-[#b34a62] rounded-xl shadow-sm font-normal transition-all duration-500" style="backdrop-filter: blur(1.5px); font-family: 'Nunito', sans-serif; letter-spacing:0.01em;">
-          “Nada pode nos separar do amor de Deus.”
-        </span>
-        <span class="mt-1 text-xs md:text-sm text-white/55 tracking-widest font-light" style="font-family: 'Nunito', sans-serif; letter-spacing: 0.13em;">
-          Romanos 8, 39
+
+      <!-- Linha divisória discreta -->
+      <hr class="w-24 md:w-32 border-t-2 border-white/20 my-5 rounded-full shadow-none" style="border-color: rgba(255,255,255,0.16); border-width:1.5px;">
+
+      <!-- Passagem bíblica limpa, sem itálico -->
+      <p class="mt-0 text-base md:text-2xl text-white/80 font-light flex flex-col items-center"
+        style="font-family: 'Nunito', sans-serif; text-shadow: 0 2px 10px #0006;">
+        Nada pode nos separar do amor de Deus
+        <span class="block text-xs md:text-sm tracking-wider text-white/60 font-normal mt-1" style="letter-spacing: 0.09em;">
+          Romanos 8,39
         </span>
       </p>
     </div>
@@ -154,9 +133,6 @@
     </script>
   </section>
 
-
-
-
   <!-- Sobre -->
   <section class="py-16 md:py-24 bg-gray-50" id="sobre">
     <div class="max-w-4xl px-4 md:px-6 mx-auto" data-aos="fade-up">
@@ -176,9 +152,18 @@
   <!-- O Que Fazemos -->
   <section class="py-16 md:py-24 bg-gradient-to-b from-white via-gray-50 to-white" id="oque-fazemos">
     <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
-      <h2 class="text-4xl font-extrabold mb-16 md:mb-20 tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
+      <h2 class="text-4xl font-extrabold mb-10 md:mb-12 tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
         <span class="pb-2 border-b-4 border-[#C53050]">O Que Fazemos</span>
       </h2>
+
+      <!-- Texto de introdução, simples, católico, justificado -->
+      <div class="max-w-2xl mx-auto mb-12 text-gray-700 text-lg md:text-xl leading-relaxed text-justify" style="font-family: 'Nunito', sans-serif;">
+        <p>
+          Nosso chamado é servir a Deus e à Igreja através da música. Com alegria, dedicação e respeito à liturgia, buscamos tornar cada celebração, encontro e evento ainda mais especial.<br><br>
+          Se você procura um ministério comprometido com a evangelização e a vivência da fé, estamos prontos para caminhar juntos e fazer parte da sua história.
+        </p>
+      </div>
+
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
 
         <!-- Missas -->
@@ -296,7 +281,7 @@
               </h3>
               <div class="flex gap-5 mt-1 justify-center">
                 <!-- Spotify -->
-                <a href="https://open.spotify.com/album/ALBUM_ID" target="_blank" rel="noopener"
+                <a href="https://open.spotify.com/album/3m1HYXg7gYW2PWSacnrrkK" target="_blank" rel="noopener"
                   class="group relative flex items-center justify-center w-12 h-12 rounded-full transition
                   border-2 border-gray-200 bg-white hover:border-[#C53050] hover:bg-white hover:scale-110"
                   aria-label="Spotify">
@@ -306,7 +291,7 @@
                   <span class="absolute opacity-0 group-hover:opacity-100 pointer-events-none transition bg-gray-900 text-white text-xs px-3 py-1 rounded-full shadow -bottom-9 left-1/2 -translate-x-1/2">Spotify</span>
                 </a>
                 <!-- Deezer -->
-                <a href="https://www.deezer.com/br/album/ALBUM_ID" target="_blank" rel="noopener"
+                <a href="https://www.deezer.com/br/album/64039912" target="_blank" rel="noopener"
                   class="group relative flex items-center justify-center w-12 h-12 rounded-full transition
                   border-2 border-gray-200 bg-white hover:border-[#C53050] hover:bg-white hover:scale-110"
                   aria-label="Deezer">
@@ -319,7 +304,7 @@
                   <span class="absolute opacity-0 group-hover:opacity-100 pointer-events-none transition bg-gray-900 text-white text-xs px-3 py-1 rounded-full shadow -bottom-9 left-1/2 -translate-x-1/2">Deezer</span>
                 </a>
                 <!-- Apple Music -->
-                <a href="https://music.apple.com/br/album/ALBUM_ID" target="_blank" rel="noopener"
+                <a href="https://music.apple.com/br/album/confiar-%D7%90%D7%9E%D7%95%D7%9F/1387072756" target="_blank" rel="noopener"
                   class="group relative flex items-center justify-center w-12 h-12 rounded-full transition
                   border-2 border-gray-200 bg-white hover:border-[#C53050] hover:bg-white hover:scale-110"
                   aria-label="Apple Music">
@@ -401,16 +386,19 @@
     </div>
   </section>
 
-
   <!-- Redes Sociais -->
   <section class="py-24 bg-white border-t border-gray-200" id="redes">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-extrabold mb-20 tracking-wide text-gray-900" style="font-family: 'Sora', sans-serif;">
         <span class="pb-2 border-b-4 border-[#C53050]">Redes Sociais</span>
       </h2>
-      <p class="text-gray-600 mb-12 text-lg" style="font-family: 'Nunito', sans-serif;">
-        Acompanhe o Jeito Ágape nas redes sociais e não perca nenhum momento especial!
-      </p>
+
+      <div class="mb-10 md:mb-12 max-text-section text-gray-700 text-lg md:text-xl text-justify" style="font-family: 'Nunito', sans-serif;">
+        <p class="mb-4">
+          Acompanhe o Jeito Ágape nas redes sociais e não perca nenhum momento especial! Esperemos te ver sempre conosco...
+        </p>
+      </div>
+      
       <div class="flex flex-col md:flex-row justify-center gap-8">
 
         <!-- Card Instagram -->
@@ -422,10 +410,12 @@
               Instagram
             </h3>
           </div>
-          <p class="mt-2 text-gray-600 text-center" style="font-family: 'Nunito', sans-serif;">
+          <p class="mt-2 text-gray-600 text-center text-base" style="font-family: 'Nunito', sans-serif;">
             Veja fotos, bastidores e novidades em nosso Instagram!
           </p>
-          <span class="mt-6 w-full inline-block text-center font-semibold">@jeitoagape</span>
+          <span class="mt-6 w-full inline-block text-center font-medium text-base text-[#C53050]" style="font-family: 'Nunito', sans-serif;">
+            @jeitoagape
+          </span>
         </a>
 
         <!-- Card YouTube -->
@@ -437,10 +427,12 @@
               YouTube
             </h3>
           </div>
-          <p class="mt-2 text-gray-600 text-center" style="font-family: 'Nunito', sans-serif;">
+          <p class="mt-2 text-gray-600 text-center text-base" style="font-family: 'Nunito', sans-serif;">
             Assista nossos vídeos, músicas e transmissões.
           </p>
-          <span class="mt-6 w-full inline-block text-center font-semibold">/jeitoagape</span>
+          <span class="mt-6 w-full inline-block text-center font-medium text-base text-[#C53050]" style="font-family: 'Nunito', sans-serif;">
+            /jeitoagape
+          </span>
         </a>
 
         <!-- Card TikTok -->
@@ -452,14 +444,17 @@
               TikTok
             </h3>
           </div>
-          <p class="mt-2 text-gray-600 text-center" style="font-family: 'Nunito', sans-serif;">
+          <p class="mt-2 text-gray-600 text-center text-base" style="font-family: 'Nunito', sans-serif;">
             Vídeos curtos, trends, bastidores e momentos marcantes!
           </p>
-          <span class="mt-6 w-full inline-block text-center font-semibold">@jeitoagape</span>
+          <span class="mt-6 w-full inline-block text-center font-medium text-base text-[#C53050]" style="font-family: 'Nunito', sans-serif;">
+            @jeitoagape
+          </span>
         </a>
       </div>
     </div>
   </section>
+
 
   <!-- Contato -->
   <section class="py-24 bg-gray-50" id="contato">
