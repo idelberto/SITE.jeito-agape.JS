@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeito Ágape | Ministério de Música Católica</title>
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend:wght@600&family=Nunito:wght@400;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend:wght@600&family=Nunito:wght@400;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">  
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Sora:wght@600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>o
   
   <style>
     html { scroll-behavior: smooth; }
@@ -38,6 +41,13 @@
       max-width: 680px;
       margin-left: auto;
       margin-right: auto;
+    }
+    .h1-glow {
+      transition: text-shadow 0.3s, color 0.3s;
+    }
+    .h1-glow:hover {
+      text-shadow: 0 2px 32px #fff9, 0 1px 1px #fff3, 0 2px 6px #c5305080;
+      color: #fff;
     }
   </style>
 </head>
@@ -86,11 +96,17 @@
         onanimationstart="document.getElementById('splash').style.display='block';"
       />
       <!-- Nome do Ministério -->
-      <h1 class="text-5xl md:text-8xl font-semibold tracking-tight bg-gradient-to-br from-white/90 to-white/70 bg-clip-text text-transparent leading-tight md:leading-snug z-20 relative mt-1"
-          style="font-family: 'Lexend', 'Montserrat', sans-serif; text-shadow: 0 4px 18px #0003, 0 1px 1px #0004;">
+      <h1 class="h1-glow text-5xl md:text-8xl font-semibold tracking-tight bg-gradient-to-br from-white/90 to-white/70 bg-clip-text text-transparent leading-tight md:leading-snug z-20 relative mt-2 mb-2"
+          style="
+            font-family: 'Quicksand', 'Lexend', 'Montserrat', sans-serif;
+            text-shadow: 0 3px 18px #0003, 0 1px 1px #0004;
+            letter-spacing: 0.02em;
+            border-radius: 0.9rem;
+            padding: 0.12em 0.4em;
+            transition: text-shadow 0.3s;
+          ">
         Ministério Jeito Ágape
       </h1>
-
       <!-- Linha divisória discreta -->
       <hr class="w-24 md:w-32 border-t-2 border-white/20 my-5 rounded-full shadow-none" style="border-color: rgba(255,255,255,0.16); border-width:1.5px;">
 
