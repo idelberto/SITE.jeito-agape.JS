@@ -328,12 +328,18 @@
     @media (max-width: 768px) {
       .hero-socials {
         position: absolute;
-        right: auto;
-        top: -2.5rem;
-        left: 50%;
-        transform: translateX(-50%);
+        right: 0;
+        top: -2rem;
+        left: auto;
+        transform: none;
         flex-direction: row;
-        gap: 1.5rem;
+        gap: 1rem;
+      }
+
+      .hero-socials a svg {
+        width: 16px;
+        height: 16px;
+        fill: rgba(255, 255, 255, 0.4);
       }
 
       .hero-socials .line {
