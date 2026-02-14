@@ -1,0 +1,20 @@
+# Colunistas do Blog — Jeito Ágape
+# Para adicionar foto: coloque a imagem em assets/authors/ e preencha o campo 'image'
+# Sem foto: o blog mostra as iniciais do nome automaticamente
+
+- name: "Jeito Ágape"
+  role: "Ministério"
+  bio: "Ministério de Música Católica de Belo Horizonte, evangelizando há 16 anos através da música."
+  # image: "/assets/authors/jeito-agape.jpg"
+
+# Exemplo de como adicionar novos colunistas:
+#
+# - name: "Maria Silva"
+#   role: "Espiritualidade"
+#   bio: "Membro do Jeito Ágape há 10 anos. Compartilha reflexões sobre fé e vida cristã."
+#   image: "/assets/authors/maria.jpg"
+#
+# - name: "João Santos"
+#   role: "Música"
+#   bio: "Violonista e compositor do ministério. Fala sobre música sacra e composição."
+#   image: "/assets/authors/joao.jpg"

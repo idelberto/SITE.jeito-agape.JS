@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>{{ page.title }} | Jeito Ágape</title>
+
+  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <meta name="author" content="Jeito Ágape" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+  <meta property="og:title" content="{{ page.title }} | Jeito Ágape" />
+  <meta property="og:description" content="{{ page.description | default: site.description }}" />
+  <meta property="og:image" content="{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}/assets/hero1.png{% endif %}" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Jeito Ágape" />
+
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  {% feed_meta %}
+
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --surface: #111111;
+      --accent: #C53050;
+      --text: #FFFFFF;
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --border: rgba(255, 255, 255, 0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--accent); color: white; }
+
+    .header {
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .header.scrolled { background: rgba(10, 10, 10, 0.95); }
+
+    .nav-link {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-link:hover { color: var(--text); }
+    .nav-link.active { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover { background: #d4365a; }
+
+    .heartbeat { animation: heartbeat 1.4s ease-in-out infinite; }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.15); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.1); }
+      56% { transform: scale(1); }
+    }
+
+    .heart-wave { display: inline-block; animation: heart-wave 1.4s ease-in-out infinite; }
+
+    @keyframes heart-wave {
+      0%, 100% { opacity: 1; }
+      14% { opacity: 0.7; }
+      28% { opacity: 1; }
+      42% { opacity: 0.8; }
+      56% { opacity: 1; }
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--bg);
+      border-left: 1px solid var(--border);
+      z-index: 1000;
+      padding: 2rem;
+      transition: right 0.35s ease;
+    }
+
+    .mobile-menu.active { right: 0; }
+
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s;
+    }
+
+    .mobile-overlay.active { opacity: 1; pointer-events: all; }
+
+    .mobile-link {
+      display: block;
+      padding: 1rem 0;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .mobile-link:hover { color: var(--text); }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 2px solid var(--accent);
+    }
+
+    .cta-btn:hover {
+      background: #d4365a;
+      border-color: #d4365a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(197, 48, 80, 0.3);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover { transform: scale(1.08); }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: #333;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      white-space: nowrap;
+      margin-right: 0.75rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      width: 40px;
+      height: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s;
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    .back-to-top.visible { opacity: 1; pointer-events: all; }
+    .back-to-top:hover { border-color: var(--accent); }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header fixed top-0 w-full z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="/" class="flex items-center gap-2 text-lg font-bold tracking-tight" style="text-decoration: none; color: var(--text);">
+        <img src="/assets/logo.png" alt="Logo" class="w-7 h-7 heartbeat" style="filter: brightness(0) invert(1);">
+        <span class="heart-wave">Jeito Ágape</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/#sobre" class="nav-link">Sobre</a>
+        <a href="/#servicos" class="nav-link">Serviços</a>
+        <a href="/#album" class="nav-link">Álbum</a>
+        <a href="/blog/" class="nav-link {% if page.url contains '/blog' %}active{% endif %}">Blog</a>
+        <a href="/#contato" class="nav-link">Contato</a>
+        <a href="https://api.whatsapp.com/send?phone=5531991267983&text=Ol%C3%A1!%20Gostaria%20de%20convidar%20o%20Jeito%20%C3%81gape%20para%20um%20evento." target="_blank" rel="noopener noreferrer" class="nav-cta">Convide-nos</a>
+      </nav>
+
+      <button id="menu-toggle" class="md:hidden text-white" aria-label="Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <button id="menu-close" class="absolute top-6 right-6 text-white">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="mt-16">
+      <a href="/#sobre" class="mobile-link">Sobre</a>
+      <a href="/#servicos" class="mobile-link">Serviços</a>
+      <a href="/#album" class="mobile-link">Álbum</a>
+      <a href="/blog/" class="mobile-link">Blog</a>
+      <a href="/#contato" class="mobile-link">Contato</a>
+      <a href="https://api.whatsapp.com/send?phone=5531991267983&text=Ol%C3%A1!%20Gostaria%20de%20convidar%20o%20Jeito%20%C3%81gape%20para%20um%20evento." target="_blank" rel="noopener noreferrer" class="cta-btn mt-6" style="justify-content: center; width: 100%;">
+        <i data-lucide="calendar" class="w-5 h-5"></i>
+        Convide-nos
+      </a>
+    </div>
+  </nav>
+
+  <main style="padding-top: 5rem;">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Jeito Ágape &mdash; Ministério de Música Católica &mdash; Belo Horizonte, MG. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://api.whatsapp.com/send?phone=5531991267983&text=Ol%C3%A1!%20Gostaria%20de%20convidar%20o%20Jeito%20%C3%81gape%20para%20um%20evento." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <span class="whatsapp-tooltip">Convide-nos!</span>
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.373 0 12a11.938 11.938 0 001.664 6.03L0 24l6.287-1.65A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.19-1.242-6.207-3.48-8.52zM12 22c-1.695 0-3.325-.43-4.78-1.254l-.34-.19-3.733.978.998-3.617-.214-.37A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.472-.148-.672.148-.198.297-.77.966-.945 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.019-.458.13-.605.134-.133.297-.347.446-.52.149-.173.198-.298.297-.495.099-.198.05-.371-.025-.52-.074-.149-.673-1.617-.922-2.214-.243-.58-.49-.501-.672-.51l-.567-.01c-.198 0-.52.074-.791.371-.272.297-1.038 1.011-1.038 2.467s1.063 2.863 1.212 3.063c.148.198 2.1 3.34 5.08 4.678.708.305 1.261.487 1.69.622.712.227 1.364.196 1.875.119.571-.085 1.759-.717 2.009-1.41.248-.694.248-1.286.174-1.415-.074-.13-.273-.198-.567-.347z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top">
+    <i data-lucide="arrow-up" class="w-4 h-4 text-white"></i>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Header scroll
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-overlay');
+
+    const openMenu = () => {
+      mobileMenu.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    document.getElementById('menu-toggle').addEventListener('click', openMenu);
+    document.getElementById('menu-close').addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 300);
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

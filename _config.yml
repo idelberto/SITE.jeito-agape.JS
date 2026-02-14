@@ -1,0 +1,24 @@
+# Jekyll Configuration — Jeito Ágape
+title: Jeito Ágape
+description: "Ministério de Música Católica de Belo Horizonte - MG"
+url: "https://jeitoagape.com.br"
+lang: pt-BR
+
+# Permalinks
+permalink: /blog/:year/:month/:day/:title/
+
+# Plugins (supported by GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Feed
+feed:
+  path: /blog/feed.xml
+
+# Exclude from build
+exclude:
+  - README.md
+  - CLAUDE.md
+  - CNAME
+  - LICENSE
