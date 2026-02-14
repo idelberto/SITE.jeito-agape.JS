@@ -285,10 +285,109 @@ description: "Novidades, reflexões e histórias do Ministério de Música Cató
     border: 1px solid var(--border);
     border-radius: 12px;
     transition: border-color 0.3s;
+    cursor: pointer;
   }
 
   .columnist-card:hover {
     border-color: var(--accent);
+  }
+
+  /* Author modal */
+  .author-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    padding: 1rem;
+  }
+
+  .author-modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .author-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    max-width: 480px;
+    width: 100%;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.3s;
+    text-align: center;
+  }
+
+  .author-modal-overlay.active .author-modal {
+    transform: scale(1) translateY(0);
+  }
+
+  .author-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.3s;
+  }
+
+  .author-modal-close:hover {
+    color: var(--text);
+  }
+
+  .author-modal-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .author-modal-initials {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(197, 48, 80, 0.12);
+    color: var(--accent);
+    font-size: 2rem;
+    font-weight: 700;
+    border: 3px solid rgba(197, 48, 80, 0.3);
+    margin: 0 auto 1.25rem;
+  }
+
+  .author-modal h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .author-modal .modal-role {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .author-modal .modal-bio {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
   }
 
   .columnist-avatar {
@@ -433,7 +532,7 @@ description: "Novidades, reflexões e histórias do Ministério de Música Cató
       <div class="section-label">Colunistas</div>
       <div class="columnists-grid">
         {% for author in site.data.authors %}
-          <div class="columnist-card">
+          <div class="columnist-card" onclick="openAuthorModal(this)" data-name="{{ author.name }}" data-role="{{ author.role }}" data-bio="{{ author.bio }}" data-image="{{ author.image }}">
             {% if author.image %}
               <img src="{{ author.image }}" alt="{{ author.name }}" class="columnist-avatar" />
             {% else %}
@@ -454,5 +553,48 @@ description: "Novidades, reflexões e histórias do Ministério de Música Cató
   {% endif %}
 
 </div>
+
+<!-- Author Modal -->
+<div id="authorModalOverlay" class="author-modal-overlay" onclick="closeAuthorModal(event)">
+  <div class="author-modal">
+    <button class="author-modal-close" onclick="closeAuthorModal(event, true)">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <div id="authorModalContent"></div>
+  </div>
+</div>
+
+<script>
+  function openAuthorModal(card) {
+    var name = card.getAttribute('data-name');
+    var role = card.getAttribute('data-role');
+    var bio = card.getAttribute('data-bio');
+    var image = card.getAttribute('data-image');
+
+    var html = '';
+    if (image) {
+      html += '<img src="' + image + '" alt="' + name + '" class="author-modal-avatar" />';
+    } else {
+      var parts = name.split(' ');
+      var initials = parts[0].charAt(0) + parts[parts.length - 1].charAt(0);
+      html += '<div class="author-modal-initials">' + initials + '</div>';
+    }
+    html += '<h3>' + name + '</h3>';
+    if (role) html += '<p class="modal-role">' + role + '</p>';
+    if (bio) html += '<p class="modal-bio">' + bio + '</p>';
+
+    document.getElementById('authorModalContent').innerHTML = html;
+    document.getElementById('authorModalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lucide.createIcons();
+  }
+
+  function closeAuthorModal(e, force) {
+    if (force || e.target === document.getElementById('authorModalOverlay')) {
+      document.getElementById('authorModalOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+</script>
 
 <div style="padding-bottom: 4rem;"></div>
