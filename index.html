@@ -71,6 +71,16 @@
   </script>
 
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon.png">
+
+  <!-- Preconnect for faster external resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="assets/hero1.png" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -812,6 +822,19 @@
       font-size: 0.8rem;
     }
 
+    /* Screen reader only (SEO h1) */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .section { padding: 5rem 1.5rem; }
@@ -861,8 +884,11 @@
     </div>
   </nav>
 
+  <main>
+
   <!-- Hero -->
   <section id="hero" class="hero">
+    <h1 class="sr-only">Jeito Ágape — Ministério de Música Católica de Belo Horizonte</h1>
     <div class="text-center" data-aos="fade-up">
       <div style="position: relative; display: inline-block;">
         <div class="carousel" id="heroCarousel">
@@ -1005,7 +1031,7 @@
         <!-- Cover + Platforms -->
         <div data-aos="fade-up">
           <div class="album-cover">
-            <img src="assets/confiar-album.png" alt="Capa do Álbum Confiar" />
+            <img src="assets/confiar-album.png" alt="Capa do Álbum Confiar - Jeito Ágape" loading="lazy" />
           </div>
 
           <div class="flex flex-nowrap md:flex-nowrap flex-wrap gap-2 mt-6 justify-center">
@@ -1145,6 +1171,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
