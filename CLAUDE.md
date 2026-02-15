@@ -78,7 +78,6 @@ Inline at bottom of [index.html](index.html):
 ```
 assets/
 ├── Hero.png           # Hero banner (has logo, name, verse embedded)
-├── background.svg     # Body background (currently unused in redesign)
 ├── confiar-album.png  # Album cover
 ├── favicon.png        # Site favicon
 └── logo.png           # Jeito Ágape logo
