@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -857,6 +859,7 @@
         <a href="#servicos" class="nav-link">Serviços</a>
         <a href="#album" class="nav-link">Álbum</a>
         <a href="/blog/" class="nav-link">Blog</a>
+        <a href="#agenda" class="nav-link">Agenda</a>
         <a href="#contato" class="nav-link">Contato</a>
         <a href="https://api.whatsapp.com/send?phone=5531991267983&text=Ol%C3%A1!%20Gostaria%20de%20convidar%20o%20Jeito%20%C3%81gape%20para%20um%20evento." target="_blank" rel="noopener noreferrer" class="nav-cta">Convide-nos</a>
       </nav>
@@ -878,6 +881,7 @@
       <a href="#servicos" class="mobile-link">Serviços</a>
       <a href="#album" class="mobile-link">Álbum</a>
       <a href="/blog/" class="mobile-link">Blog</a>
+      <a href="#agenda" class="mobile-link">Agenda</a>
       <a href="#contato" class="mobile-link">Contato</a>
       <a href="https://api.whatsapp.com/send?phone=5531991267983&text=Ol%C3%A1!%20Gostaria%20de%20convidar%20o%20Jeito%20%C3%81gape%20para%20um%20evento." target="_blank" rel="noopener noreferrer" class="cta-btn mt-6" style="justify-content: center; width: 100%;">
         <i data-lucide="calendar" class="w-5 h-5"></i>
@@ -1132,6 +1136,253 @@
           Enviar E-mail
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Agenda -->
+  <section id="agenda" class="section section-alt">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title">Agenda</h2>
+        <div class="accent-bar" style="margin: 0 auto 1rem;"></div>
+        <p class="section-subtitle">Próximos eventos e missões</p>
+      </div>
+
+      <style>
+        .agenda-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .agenda-item {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          padding: 1.25rem 2.5rem;
+          background: var(--bg);
+          clip-path: polygon(
+            3% 0%, 100% 0%, 97% 100%, 0% 100%
+          );
+          transition: background 0.3s;
+        }
+
+        .agenda-item:hover {
+          background: rgba(197, 48, 80, 0.06);
+        }
+
+        .agenda-date {
+          text-align: center;
+          min-width: 56px;
+          flex-shrink: 0;
+        }
+
+        .agenda-date .day {
+          font-size: 1.6rem;
+          font-weight: 700;
+          line-height: 1;
+          color: var(--accent);
+        }
+
+        .agenda-date .month {
+          font-size: 0.7rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: var(--text-muted);
+          margin-top: 0.2rem;
+        }
+
+        .agenda-divider {
+          width: 1px;
+          height: 36px;
+          background: var(--border);
+          flex-shrink: 0;
+        }
+
+        .agenda-info {
+          min-width: 0;
+        }
+
+        .agenda-info h3 {
+          font-size: 1rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        }
+
+        .agenda-info .agenda-details {
+          color: var(--text-muted);
+          font-size: 0.82rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+
+        .agenda-info .agenda-details .dot {
+          opacity: 0.3;
+        }
+
+        .agenda-empty {
+          text-align: center;
+          color: var(--text-muted);
+          font-size: 0.95rem;
+          padding: 2rem 1rem;
+        }
+
+        .agenda-layout {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          align-items: center;
+        }
+
+        @media (min-width: 768px) {
+          .agenda-layout {
+            grid-template-columns: 1fr 2fr;
+            gap: 2.5rem;
+          }
+        }
+
+        .agenda-photo-wrapper {
+          position: relative;
+          filter:
+            drop-shadow(0 0 12px rgba(197, 48, 80, 0.35))
+            drop-shadow(0 0 50px rgba(197, 48, 80, 0.12))
+            drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+        }
+
+        .agenda-photo-wrapper::before {
+          content: '';
+          position: absolute;
+          inset: -3px;
+          background: linear-gradient(135deg, rgba(197, 48, 80, 0.6), rgba(197, 48, 80, 0.1), rgba(197, 48, 80, 0.4));
+          clip-path: polygon(
+            18% 2%, 20% 0%, 98% 0%, 100% 2%,
+            82% 98%, 80% 100%, 2% 100%, 0% 98%
+          );
+          z-index: -1;
+        }
+
+        .agenda-wave {
+          position: absolute;
+          inset: 0;
+          clip-path: polygon(
+            18% 2%, 20% 0%, 98% 0%, 100% 2%,
+            82% 98%, 80% 100%, 2% 100%, 0% 98%
+          );
+          border: 1px solid rgba(197, 48, 80, 0.4);
+          z-index: -2;
+          opacity: 0;
+          animation: agenda-pulse 4s ease-out infinite;
+        }
+
+        .agenda-wave:nth-child(2) { animation-delay: 1.3s; }
+        .agenda-wave:nth-child(3) { animation-delay: 2.6s; }
+
+        @keyframes agenda-pulse {
+          0% {
+            inset: 0;
+            opacity: 0.6;
+            border-color: rgba(197, 48, 80, 0.4);
+          }
+          100% {
+            inset: -30px;
+            opacity: 0;
+            border-color: rgba(197, 48, 80, 0);
+          }
+        }
+
+        .agenda-photo {
+          width: 100%;
+          height: 420px;
+          object-fit: cover;
+          object-position: center center;
+          display: block;
+          clip-path: polygon(
+            18% 2%, 20% 0%, 98% 0%, 100% 2%,
+            82% 98%, 80% 100%, 2% 100%, 0% 98%
+          );
+        }
+
+        @media (max-width: 767px) {
+          .agenda-photo {
+            height: 240px;
+            clip-path: polygon(
+              10% 2%, 12% 0%, 98% 0%, 100% 2%,
+              90% 98%, 88% 100%, 2% 100%, 0% 98%
+            );
+          }
+
+          .agenda-item {
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            clip-path: polygon(
+              2% 0%, 100% 0%, 98% 100%, 0% 100%
+            );
+          }
+
+          .agenda-date {
+            min-width: 44px;
+          }
+
+          .agenda-date .day {
+            font-size: 1.3rem;
+          }
+
+          .agenda-info h3 {
+            font-size: 0.88rem;
+          }
+
+          .agenda-info .agenda-details {
+            font-size: 0.75rem;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .agenda-item {
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+          }
+        }
+      </style>
+
+      <div class="agenda-layout" data-aos="fade-up">
+        <div class="agenda-photo-wrapper">
+          <div class="agenda-wave"></div>
+          <div class="agenda-wave"></div>
+          <div class="agenda-wave"></div>
+          <img src="/assets/agenda.jpg" alt="Agenda Jeito Ágape" class="agenda-photo" />
+        </div>
+
+        {% if site.data.agenda.size > 0 %}
+          <div class="agenda-list">
+            {% assign meses = "Jan,Fev,Mar,Abr,Mai,Jun,Jul,Ago,Set,Out,Nov,Dez" | split: "," %}
+            {% for evento in site.data.agenda %}
+              {% assign d = evento.data | date: "%d" %}
+              {% assign m = evento.data | date: "%-m" | minus: 1 %}
+              <div class="agenda-item">
+                <div class="agenda-date">
+                  <div class="day">{{ d }}</div>
+                  <div class="month">{{ meses[m] }}</div>
+                </div>
+                <div class="agenda-divider"></div>
+                <div class="agenda-info">
+                  <h3>{{ evento.nome }}</h3>
+                  <div class="agenda-details">
+                    <span>{{ evento.horario }}</span>
+                    <span class="dot">&middot;</span>
+                    <span>{{ evento.local }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="agenda-empty">Nenhum evento programado no momento. Fique ligado nas nossas redes!</p>
+        {% endif %}
+      </div>
+
     </div>
   </section>
 
