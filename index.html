@@ -1306,7 +1306,16 @@
 
         @media (max-width: 767px) {
           .agenda-photo {
-            height: 320px;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            clip-path: polygon(
+              4% 1%, 5% 0%, 99% 0%, 100% 1%,
+              96% 99%, 95% 100%, 1% 100%, 0% 99%
+            );
+            object-position: center 20%;
+          }
+
+          .agenda-photo-wrapper::before {
             clip-path: polygon(
               4% 1%, 5% 0%, 99% 0%, 100% 1%,
               96% 99%, 95% 100%, 1% 100%, 0% 99%
