@@ -83,7 +83,7 @@
   <!-- Preload hero image for faster LCP -->
   <link rel="preload" as="image" href="assets/hero1.png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -166,7 +166,7 @@
     }
 
     .heartbeat {
-      animation: heartbeat 1.4s ease-in-out infinite;
+      animation: heartbeat 2.4s ease-in-out infinite;
     }
 
     @keyframes heartbeat {
@@ -849,9 +849,8 @@
   <!-- Header -->
   <header class="header fixed top-0 w-full z-50">
     <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-      <a href="#hero" class="flex items-center gap-2 text-lg font-bold tracking-tight">
-        <img src="assets/logo.png" alt="Logo" class="w-7 h-7 heartbeat" style="filter: brightness(0) invert(1);">
-        <span class="heart-wave">Jeito Ágape</span>
+      <a href="#hero" class="flex items-center">
+        <img src="assets/logo.png" alt="Jeito Ágape" class="heartbeat" style="filter: brightness(0) invert(1); width: 34px; height: 34px;">
       </a>
 
       <nav class="hidden md:flex items-center gap-8">
