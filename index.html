@@ -1170,6 +1170,14 @@
           background: rgba(197, 48, 80, 0.06);
         }
 
+        .agenda-item.past {
+          opacity: 0.4;
+        }
+
+        .agenda-item.past .agenda-info h3 {
+          text-decoration: line-through;
+        }
+
         .agenda-date {
           text-align: center;
           min-width: 56px;
@@ -1366,10 +1374,12 @@
         {% if site.data.agenda.size > 0 %}
           <div class="agenda-list">
             {% assign meses = "Jan,Fev,Mar,Abr,Mai,Jun,Jul,Ago,Set,Out,Nov,Dez" | split: "," %}
+            {% assign today = site.time | date: "%Y%m%d" %}
             {% for evento in site.data.agenda %}
               {% assign d = evento.data | date: "%d" %}
               {% assign m = evento.data | date: "%-m" | minus: 1 %}
-              <div class="agenda-item">
+              {% assign event_date = evento.data | date: "%Y%m%d" %}
+              <div class="agenda-item{% if event_date < today %} past{% endif %}">
                 <div class="agenda-date">
                   <div class="day">{{ d }}</div>
                   <div class="month">{{ meses[m] }}</div>
