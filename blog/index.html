@@ -252,6 +252,107 @@ description: "Novidades, reflexões e histórias do Ministério de Música Cató
   }
 
   /* Columnists section */
+  /* Subscribe section */
+  .subscribe-section {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .subscribe-section h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .subscribe-section p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .subscribe-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 440px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .subscribe-form input[type="email"] {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .subscribe-form input[type="email"]::placeholder {
+    color: var(--text-muted);
+  }
+
+  .subscribe-form input[type="email"]:focus {
+    border-color: var(--accent);
+  }
+
+  .subscribe-form button {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+
+  .subscribe-form button:hover {
+    background: #d4365a;
+  }
+
+  .subscribe-alt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  .subscribe-alt a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .subscribe-alt a:hover {
+    color: #d4365a;
+  }
+
+  @media (max-width: 480px) {
+    .subscribe-form {
+      flex-direction: column;
+    }
+    .subscribe-form button {
+      padding: 0.85rem;
+    }
+  }
+
   .columnists-section {
     margin-top: 4rem;
     padding-top: 3rem;
@@ -526,6 +627,23 @@ description: "Novidades, reflexões e histórias do Ministério de Música Cató
     <p class="no-posts">Nenhum post publicado ainda. Volte em breve!</p>
   {% endif %}
 
+  <!-- Subscribe -->
+  <div class="subscribe-section">
+    <h3>Receba nossos artigos</h3>
+    <p>Inscreva-se e seja notificado sempre que publicarmos um novo artigo.</p>
+    <form class="subscribe-form" id="subscribeForm">
+      <input type="email" id="subscribeEmail" placeholder="Seu melhor e-mail" required />
+      <button type="submit">Inscrever</button>
+    </form>
+    <div class="subscribe-alt">
+      <span>Ou acompanhe via</span>
+      <a href="/blog/feed.xml" target="_blank" rel="noopener noreferrer">
+        <i data-lucide="rss" class="w-3.5 h-3.5"></i>
+        RSS Feed
+      </a>
+    </div>
+  </div>
+
   <!-- Columnists -->
   {% if site.data.authors.size > 0 %}
     <div class="columnists-section">
@@ -595,6 +713,16 @@ description: "Novidades, reflexões e histórias do Ministério de Música Cató
       document.body.style.overflow = '';
     }
   }
+
+  // Newsletter subscribe — mailto fallback
+  document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = document.getElementById('subscribeEmail').value;
+    var subject = encodeURIComponent('Inscrição no Blog - Jeito Ágape');
+    var body = encodeURIComponent('Olá! Gostaria de me inscrever para receber os artigos do blog.\n\nMeu e-mail: ' + email);
+    window.open('mailto:contato@jeitoagape.com.br?subject=' + subject + '&body=' + body, '_blank');
+    document.getElementById('subscribeEmail').value = '';
+  });
 </script>
 
 <div style="padding-bottom: 4rem;"></div>
