@@ -4,81 +4,94 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static single-page website for **Jeito Ágape**, a Catholic music ministry in Brazil. Hosted on GitHub Pages at **jeitoagape.com.br**.
-
-## Technology Stack
-
-- Single HTML file ([index.html](index.html)) with inline CSS and JavaScript
-- TailwindCSS via CDN (`cdn.tailwindcss.com`)
-- AOS (Animate On Scroll) library via unpkg CDN
-- Lucide icons via unpkg CDN
-- No build process, package manager, or dependencies to install
+Static website for **Jeito Ágape**, a Catholic music ministry in Belo Horizonte, Brazil. Hosted on GitHub Pages at **jeitoagape.com.br**. Now uses **Jekyll** for blog functionality while keeping the main page as a standalone HTML file.
 
 ## Running Locally
 
 ```bash
+# Full site with Jekyll (blog + index):
+bundle install
+bundle exec jekyll serve
+
+# Quick preview of index.html only (no blog):
 python3 -m http.server 8000
-# or: npx http-server -p 8000
-# or: xdg-open index.html
 ```
 
 ## Deployment
 
-Push to `main` branch → GitHub Pages auto-deploys. CNAME maps to `jeitoagape.com.br`.
+Push to `main` → GitHub Pages builds with Jekyll and auto-deploys. Custom domain configured via `CNAME`.
 
 ## Architecture
 
-### Single-File Structure
+### Two-Layer Structure
 
-Everything lives in [index.html](index.html): HTML structure, `<style>` block, and `<script>` block.
+1. **Main page** — [index.html](index.html): Self-contained single file with all HTML, `<style>`, `<script>`, and SEO markup. Has empty YAML front matter (`---\n---`) so Jekyll processes it but it doesn't use a layout.
 
-Sections (5 total): Hero (`#hero`), Sobre (`#sobre`), Serviços (`#servicos`), Álbum (`#album`), Contato & Redes (`#contato`).
+2. **Blog system** — Jekyll-powered:
+   - [_layouts/default.html](_layouts/default.html): Shared shell (header, footer, WhatsApp float, mobile menu, back-to-top). All blog pages use this.
+   - [_layouts/post.html](_layouts/post.html): Individual blog post template (extends `default`).
+   - [blog/index.html](blog/index.html): Blog listing page with featured card, post grid, and columnists section.
+   - [_posts/](_posts/): Blog posts in Markdown with front matter (`layout`, `title`, `date`, `author`, `category`, `image`, `description`).
+   - [_data/authors.yml](_data/authors.yml): Blog columnists (name, role, bio, image).
+   - [_data/agenda.yml](_data/agenda.yml): Upcoming events data (date, name, location, time).
 
-### CSS Design System — Minimalist Dark Theme
+### CSS Design System
 
-CSS custom properties in `:root`:
-- `--bg: #0A0A0A` (background), `--surface: #111111` (cards/alt sections)
-- `--accent: #C53050` (brand red, used sparingly)
-- `--text: #FFFFFF`, `--text-muted: rgba(255,255,255,0.5)`
-- `--border: rgba(255,255,255,0.06)` (subtle dividers)
+CSS custom properties defined in `:root` (duplicated in both `index.html` and `_layouts/default.html`):
+- `--bg: #0A0A0A`, `--surface: #111111`, `--accent: #C53050`
+- `--text: #FFFFFF`, `--text-muted: rgba(255,255,255,0.5)`, `--border: rgba(255,255,255,0.06)`
 
-Font: **Inter** only (weights 300–700). Sections alternate between `--bg` and `--surface` using `.section-alt` class.
+Font: **Inter** (weights 300–700). Icons: **Lucide** via unpkg CDN. Styling: **Tailwind CSS** via CDN (no build step).
 
-### Key CSS Classes
+### Key CSS Classes (shared across layouts)
 
-- `.header` / `.header.scrolled` — fixed header, darkens on scroll
-- `.hero` — full-viewport, displays Hero.png centered
-- `.card` — minimal cards with border hover to accent color
+- `.header` / `.header.scrolled` — fixed nav, darkens on scroll
+- `.hero` — full-viewport hero (index.html only)
+- `.card` — bordered cards with accent hover
+- `.section` / `.section-alt` — alternating section backgrounds
 - `.track` / `.track-num` / `.track-name` — album tracklist
-- `.platform-link` — streaming platform buttons (inline, small)
-- `.link-card` — contact/social grid cards
 - `.whatsapp-float` — fixed WhatsApp button (bottom-right)
 - `.back-to-top` / `.visible` — scroll-to-top (bottom-left)
 - `.mobile-menu` / `.mobile-overlay` — slide-in mobile nav
+- `.cta-btn` / `.nav-cta` — call-to-action buttons
 
-### JavaScript
+### Navigation
 
-Inline at bottom of [index.html](index.html):
-1. AOS init (`duration: 600, once: true, offset: 80`)
-2. Lucide icon rendering
-3. Header scroll class toggle
-4. Mobile menu open/close with body scroll lock
-5. Back-to-top visibility toggle (after 300px)
-6. Smooth scroll for `#` anchor links
+Desktop and mobile nav exist in both `index.html` (for the homepage) and `_layouts/default.html` (for blog pages). Nav links use `/#section` anchors so they work from any page. Blog link highlights via Liquid `{% if page.url contains '/blog' %}active{% endif %}`.
 
-### Adding New Sections
+### Blog Post Categories
 
-1. Add `<section id="new-id" class="section">` (use `section-alt` for alternate bg)
-2. Add `data-aos="fade-up"` for scroll animation
-3. Update nav links in both desktop (`nav.hidden.md:flex`) and mobile (`#mobile-menu`)
-4. Use `.section-title` + `.accent-bar` + `.section-subtitle` for heading pattern
+Supported categories with color-coded tags: `espiritualidade`, `ministerio`, `musica`, `eventos`, `reflexao`.
+
+### Adding a Blog Post
+
+Create `_posts/YYYY-MM-DD-slug.md` with front matter:
+```yaml
+---
+layout: post
+title: "Post Title"
+date: YYYY-MM-DD
+author: "Author Name"
+category: "Ministério"
+image: "/assets/image.jpg"
+description: "Short description for SEO"
+---
+```
+
+### Important Patterns
+
+- `index.html` and `_layouts/default.html` share the same header/footer/WhatsApp markup but are **not DRY** — changes to nav or footer must be made in both places.
+- AOS (Animate On Scroll) is used only on `index.html` (loaded via unpkg CDN).
+- Google Analytics tag `G-HMWJ8YLG75` is present in both `index.html` and `_layouts/default.html`.
+- All external links (WhatsApp, social media, streaming) use `target="_blank" rel="noopener noreferrer"`.
 
 ## Assets
 
-```
-assets/
-├── Hero.png           # Hero banner (has logo, name, verse embedded)
-├── confiar-album.png  # Album cover
-├── favicon.png        # Site favicon
-└── logo.png           # Jeito Ágape logo
-```
+Images live in [assets/](assets/). Key files: `logo.png`, `favicon.png`, `hero1.png`, `hero2.png`, `confiar-album.png`, `agenda.jpg`, author photos (`Beto.jpg`, `Delliz.jpg`).
+
+## SEO & Integrations
+
+- JSON-LD structured data (MusicGroup schema) in `index.html`
+- Jekyll plugins: `jekyll-feed` (RSS at `/blog/feed.xml`), `jekyll-seo-tag`
+- [robots.txt](robots.txt) and [sitemap.xml](sitemap.xml) for search engines
+- Google Search Console verification: [google4935ae81f77f0f51.html](google4935ae81f77f0f51.html)
