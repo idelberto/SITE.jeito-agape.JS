@@ -326,6 +326,40 @@ layout: default
   }
 </style>
 
+{% assign words = content | number_of_words %}
+{% assign mins = words | divided_by: 200 %}
+{% if mins < 1 %}{% assign mins = 1 %}{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | truncatewords: 30 | jsonify }},
+  "image": "{{ site.url }}{% if page.og_image %}{{ page.og_image }}{% elsif page.image %}{{ page.image }}{% else %}/assets/hero1.png{% endif %}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": {{ page.author | default: "Jeito Ágape" | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jeito Ágape",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  },
+  "wordCount": "{{ words }}",
+  "articleSection": {{ page.category | default: "Blog" | jsonify }},
+  "inLanguage": "pt-BR"
+}
+</script>
+
 <div class="max-w-4xl mx-auto px-4">
   <a href="/blog/" class="post-back">
     <i data-lucide="arrow-left" class="w-4 h-4"></i>

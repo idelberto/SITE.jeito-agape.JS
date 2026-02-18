@@ -14,7 +14,7 @@
   <title>{{ page.title }} | Jeito Ágape</title>
 
   <meta name="description" content="{{ page.description | default: site.description }}" />
-  <meta name="keywords" content="Jeito Ágape, ministério de música católica, banda católica, música católica, música cristã, louvor católico, adoração católica, grupo de louvor, ministério de louvor, evangelização pela música, banda para missa, banda para retiro, Belo Horizonte, MG" />
+  <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}Jeito Ágape, ministério de música católica, banda católica, música católica, música cristã, louvor católico, adoração católica, grupo de louvor, ministério de louvor, evangelização pela música, banda para missa, banda para retiro, Belo Horizonte, MG{% endif %}" />
   <meta name="author" content="Jeito Ágape" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
