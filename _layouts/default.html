@@ -14,15 +14,35 @@
   <title>{{ page.title }} | Jeito Ágape</title>
 
   <meta name="description" content="{{ page.description | default: site.description }}" />
+  <meta name="keywords" content="Jeito Ágape, ministério de música católica, banda católica, música católica, música cristã, louvor católico, adoração católica, grupo de louvor, ministério de louvor, evangelização pela música, banda para missa, banda para retiro, Belo Horizonte, MG" />
   <meta name="author" content="Jeito Ágape" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <meta name="geo.region" content="BR-MG" />
+  <meta name="geo.placename" content="Belo Horizonte" />
 
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
-  <meta property="og:title" content="{{ page.title }} | Jeito Ágape" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:title" content="{{ page.title }}" />
   <meta property="og:description" content="{{ page.description | default: site.description }}" />
-  <meta property="og:image" content="{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}/assets/hero1.png{% endif %}" />
+  <meta property="og:image" content="{{ site.url }}{% if page.og_image %}{{ page.og_image }}{% elsif page.image %}{{ page.image }}{% else %}/assets/hero1.png{% endif %}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="Jeito Ágape" />
+  {% if page.layout == 'post' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+  <meta property="article:author" content="{{ page.author | default: 'Jeito Ágape' }}" />
+  <meta property="article:section" content="{{ page.category }}" />
+  {% endif %}
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ page.title }}" />
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}" />
+  <meta name="twitter:image" content="{{ site.url }}{% if page.og_image %}{{ page.og_image }}{% elsif page.image %}{{ page.image }}{% else %}/assets/hero1.png{% endif %}" />
+  <meta name="twitter:image:alt" content="{{ page.title }}" />
 
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon.png">
 

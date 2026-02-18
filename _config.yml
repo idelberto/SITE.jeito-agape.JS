@@ -1,8 +1,20 @@
 # Jekyll Configuration — Jeito Ágape
 title: Jeito Ágape
-description: "Ministério de Música Católica de Belo Horizonte - MG"
+tagline: "Ministério de Música Católica"
+description: "Jeito Ágape é um ministério de música católica de Belo Horizonte - MG. Há 16 anos evangelizando através da música, com mais de 500 missões realizadas em missas, retiros, shows e EJCs."
 url: "https://jeitoagape.com.br"
 lang: pt-BR
+locale: pt_BR
+logo: /assets/logo.png
+
+# Social / SEO
+social:
+  name: Jeito Ágape
+  links:
+    - https://www.instagram.com/jeitoagape
+    - https://www.youtube.com/jeitoagape
+    - https://www.tiktok.com/@jeitoagape
+    - https://open.spotify.com/album/3m1HYXg7gYW2PWSacnrrkK
 
 # Permalinks
 permalink: /blog/:year/:month/:day/:title/
