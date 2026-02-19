@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /assets/*.pdf$
 
+# Sitemaps
 Sitemap: https://jeitoagape.com.br/sitemap.xml
+
+# RSS Feed
+# https://jeitoagape.com.br/blog/feed.xml
