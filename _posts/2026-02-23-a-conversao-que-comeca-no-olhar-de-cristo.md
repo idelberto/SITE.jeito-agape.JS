@@ -15,19 +15,15 @@ Tenho pensado muito sobre o que espero de Deus. E, sendo honesto, percebo que mu
 
 Mas o que descubro, toda vez que abro os Evangelhos, é que o Deus que encontro ali não cabe nas minhas expectativas. Ele é sempre maior. Sempre mais próximo. Sempre mais surpreendente do que qualquer coisa que eu pudesse imaginar.
 
-E ninguém ensina isso melhor do que Zaqueu.
-
 ## O homem que queria apenas ver de longe
 
-Zaqueu era chefe dos publicanos — um cobrador de impostos a serviço do Império Romano. Para os seus conterrâneos judeus, era um traidor. Para Roma, era um instrumento. Para a sociedade, era um pária. E para si mesmo? Provavelmente um homem que aprendera a negociar com a própria consciência, que trocara a honra pelo ouro e que, por dentro, carregava um vazio que nenhuma riqueza conseguia preencher.
+Zaqueu era chefe dos publicanos — um cobrador de impostos a serviço do Império Romano. Para os seus conterrâneos judeus, era um traidor. Para Roma, era um instrumento. E para si mesmo? Provavelmente um homem que aprendera a negociar com a própria consciência, que trocara a honra pelo ouro e que, por dentro, carregava um vazio que nenhuma riqueza conseguia preencher.
 
-Quando Jesus chegou a Jericó, Zaqueu quis vê-Lo. Não sabemos bem o que esperava desse encontro. Talvez apenas satisfazer a curiosidade. Talvez um lampejo de esperança que ele mesmo não sabia nomear. Mas havia um problema: ele era de baixa estatura e a multidão era grande.
+Se pararmos para pensar, não estamos tão distantes de Zaqueu. Quantos de nós vivemos escravizados por uma imagem que construímos nas redes sociais? Trocamos autenticidade por curtidas, silêncio por exposição, profundidade por aparência. Servimos a um sistema que nos usa como instrumento — de consumo, de engajamento, de vaidade — enquanto por dentro carregamos o mesmo vazio que Zaqueu carregava. Somos cobradores de aprovação alheia, e o preço que pagamos é a nossa própria paz.
 
-O que faz Zaqueu? Corre à frente e sobe numa figueira-brava às beiradas do caminho.
+Quando Jesus chegou a Jericó, a multidão se aglomerou para ver aquele homem de quem todos falavam. Havia um movimento nas ruas, uma agitação diferente. E Zaqueu, curioso com aquilo tudo, quis entender o que estava acontecendo. Mas era de baixa estatura e não conseguia enxergar nada por cima da multidão.
 
-Gosto muito dessa imagem. Um homem rico, poderoso, temido — subindo numa árvore como um menino, sem se importar com o ridículo, sem calcular a própria dignidade. Havia algo naquele Jesus que valia mais do que a aparência. Havia algo que o fazia correr e subir, só para conseguir **ver**.
-
-A expectativa de Zaqueu era essa: **ver de longe**. Apenas uma breve visão do Mestre que todos comentavam. Ser mais um rosto na multidão. Não esperava ser notado. Não esperava ser chamado. Com certeza não esperava o que aconteceu a seguir.
+O que faz Zaqueu? Corre à frente e sobe num sicômoro às beiradas do caminho — não para ser visto, mas para entender aquele movimento que tomava conta da cidade.
 
 ## Mas foi Jesus quem o escolheu
 
@@ -42,8 +38,6 @@ Zaqueu subiu na árvore — esse foi o movimento dele, a busca dele, o esforço 
 Quando leio isso, me dou conta de que é assim que Cristo opera. Nós subimos na árvore — com nossos esforços, nossas rezas, nossas buscas — esperando talvez apenas uma visão distante de Deus. E então Ele olha para nós, nos chama pelo nome e diz: *"Hoje devo ficar em tua casa."*
 
 Não é nossa busca que gera o encontro. É a misericórdia Dele que nos acha.
-
-## O contraste que Mateus nos mostra
 
 O Evangelho de Mateus guarda uma cena que ilumina ainda mais a história de Zaqueu. Um jovem rico se aproxima de Jesus e pergunta o que deve fazer para alcançar a vida eterna. Jesus lhe responde que venda tudo o que tem, dê aos pobres e o siga.
 
