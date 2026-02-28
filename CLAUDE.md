@@ -9,6 +9,9 @@ Static website for **Jeito Ágape**, a Catholic music ministry in Belo Horizonte
 ## Running Locally
 
 ```bash
+# First-time setup (installs Ruby, Bundler, gems):
+bash setup.sh
+
 # Full site with Jekyll (blog + index):
 bundle install
 bundle exec jekyll serve
@@ -34,6 +37,10 @@ Push to `main` → GitHub Pages builds with Jekyll and auto-deploys. Custom doma
    - [_posts/](_posts/): Blog posts in Markdown with front matter (`layout`, `title`, `date`, `author`, `category`, `image`, `description`).
    - [_data/authors.yml](_data/authors.yml): Blog columnists (name, role, bio, image).
    - [_data/agenda.yml](_data/agenda.yml): Upcoming events data (date, name, location, time).
+
+3. **Other pages** (use `default` layout):
+   - [wallpapers/index.html](wallpapers/index.html): Wallpaper download gallery with ImageGallery JSON-LD schema.
+   - [404.html](404.html): Custom error page (`permalink: /404.html`).
 
 ### CSS Design System
 
@@ -82,7 +89,7 @@ description: "Short description for SEO"
 
 - `index.html` and `_layouts/default.html` share the same header/footer/WhatsApp markup but are **not DRY** — changes to nav or footer must be made in both places.
 - AOS (Animate On Scroll) is used only on `index.html` (loaded via unpkg CDN).
-- Google Analytics tag `G-HMWJ8YLG75` is present in both `index.html` and `_layouts/default.html`.
+- Google Analytics tag `G-D16SF5HL8K` and Google Tag Manager `GTM-M3Q29ZNZ` are present in both `index.html` and `_layouts/default.html`.
 - All external links (WhatsApp, social media, streaming) use `target="_blank" rel="noopener noreferrer"`.
 
 ## Assets
@@ -92,6 +99,7 @@ Images live in [assets/](assets/). Key files: `logo.png`, `favicon.png`, `hero1.
 ## SEO & Integrations
 
 - JSON-LD structured data (MusicGroup schema) in `index.html`
-- Jekyll plugins: `jekyll-feed` (RSS at `/blog/feed.xml`), `jekyll-seo-tag`
-- [robots.txt](robots.txt) and [sitemap.xml](sitemap.xml) for search engines
+- Jekyll plugins: `jekyll-feed` (RSS at `/blog/feed.xml`), `jekyll-seo-tag`, `jekyll-sitemap` (auto-generates `/sitemap.xml`)
+- [robots.txt](robots.txt) for search engines
 - Google Search Console verification: [google4935ae81f77f0f51.html](google4935ae81f77f0f51.html)
+- `_config.yml` excludes `CLAUDE.md`, `README.md`, `CNAME`, `LICENSE` from the Jekyll build
