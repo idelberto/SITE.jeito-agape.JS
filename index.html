@@ -96,6 +96,10 @@
   </script>
 
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="alternate" hreflang="pt-BR" href="https://jeitoagape.com.br/" />
+  <link rel="alternate" type="application/rss+xml" title="Blog Jeito Ágape" href="/blog/feed.xml" />
 
   <!-- Preconnect for faster external resource loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1707,6 +1711,27 @@
 
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
+  </script>
+  <!-- Event tracking for outbound links -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (href.includes('whatsapp.com')) {
+        gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: href });
+      } else if (href.includes('spotify.com')) {
+        gtag('event', 'spotify_click', { event_category: 'streaming', event_label: href });
+      } else if (href.includes('youtube.com')) {
+        gtag('event', 'youtube_click', { event_category: 'streaming', event_label: href });
+      } else if (href.includes('soundcloud.com')) {
+        gtag('event', 'soundcloud_click', { event_category: 'streaming', event_label: href });
+      } else if (href.includes('instagram.com')) {
+        gtag('event', 'instagram_click', { event_category: 'social', event_label: href });
+      } else if (href.includes('tiktok.com')) {
+        gtag('event', 'tiktok_click', { event_category: 'social', event_label: href });
+      }
+    });
   </script>
 </body>
 </html>
